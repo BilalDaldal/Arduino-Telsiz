@@ -39,12 +39,10 @@
 #include <RF24Audio.h>
 
 
-RF24 radio(8, 9); // Set radio up using pins 7 (CE) 8 (CS)
+RF24 radio(7, 8); // Set radio up using pins 7 (CE) 8 (CS)
 RF24Audio rfAudio(radio, 0); // Set up the audio using the radio, and set to radio number 0
 
 int talkButton = 3;
-int talking_Led = 5;
-int not_talking_Led =6;
 
 void setup() {
   Serial.begin(115200);
@@ -56,8 +54,6 @@ void setup() {
   rfAudio.begin();
 
   pinMode(talkButton, INPUT);
-  pinMode(talking_Led, OUTPUT);
-  pinMode(not_talking_Led, OUTPUT);
 
 
   //sets interrupt to check for button talk abutton press
@@ -88,17 +84,4 @@ void talk()
 
 
 void loop()
-{
-  if (digitalRead(talkButton)){
-    digitalWrite(talking_Led,0);
-  }
-  else {
-    digitalWrite(talking_Led,1);
-  }
-    if (digitalRead(talkButton)){
-    digitalWrite(not_talking_Led,1);
-  }
-  else {
-    digitalWrite(not_talking_Led,0);
-  }
-}
+{}
