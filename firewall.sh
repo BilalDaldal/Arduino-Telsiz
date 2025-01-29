@@ -43,9 +43,9 @@ iptables -A INPUT -p udp --dport 49914 -j ACCEPT
 iptables -A OUTPUT -p udp --sport 49914 -j ACCEPT
 
 # allow forwarding for wireguard (because we DROP on FORWARD chain by default. Change "ens3" to "eth0" if you are using the old network interface names)
-iptables -A FORWARD -i wg0 -o ens3 -j ACCEPT
+iptables -A FORWARD -i wg0 -o ens5 -j ACCEPT
 iptables -A FORWARD -i ens3 -o wg0 -j ACCEPT
-ip6tables -A FORWARD -i wg0 -o ens3 -j ACCEPT
+ip6tables -A FORWARD -i wg0 -o ens5 -j ACCEPT
 ip6tables -A FORWARD -i ens3 -o wg0 -j ACCEPT
 
 # port forwarding rules# Tixati - TCP 
